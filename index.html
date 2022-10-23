@@ -39,7 +39,7 @@
 				
 				<section data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
 					<a href="https://revealjs.com">
-						<img src="https://user-images.githubusercontent.com/61646760/193196015-1e62476a-1d87-43eb-8d53-3616eb547a09.jpg" alt="logo" style="height: 390px; margin: 0 auto 1rem auto; background: transparent;" class="demo-logo">
+						<img src="https://user-images.githubusercontent.com/61646760/197380856-ea0f21a5-af42-4955-bca6-1304141ff3c7.png" alt="logo" style="height: 390px; margin: 0 auto 1rem auto; background: transparent;" class="demo-logo">
 					</a>
 					<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">미디어위키의 이해와 설치</h3>
 					<!-- <p></p> -->
@@ -51,15 +51,24 @@
 				<section data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
 					<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">목차</h3>
 					<ol class="fragment">
-						<li>위키<a href="#위키">#</a></li>
-						<li>미디어위키<a href="#미디어위키">#</a></li>
-						<li>미디어위키 설치 실습<a href="#설치">#</a></li>
+						<li>위키와 미디어위키<a href="#위키">#</a></li>
+						<ol>
+							<li>위키란?</li>
+							<li>미디어위키</li>
+						</ol>
+						<li>미디어위키 설치 실습</li>
+						<ol>
+							<li>AWS 서버에 미디어위키 압축 풀기<a href="#압축풀기">#</a></li>
+							<li>데이터베이스 및 사용자 생성<a href="#DB">#</a></li>
+							<li>웹에서 미디어위키 설치<a href="#설치">#</a></li>
+							<li>LocalSettings.php 서버에 올리기<a href="#php">#</a></li>
+						</ol>
 					</ol>
 				</section>
 
 				<section id="위키" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
 					<section>
-						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">위키</h3>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">위키와 미디어위키</h3>
 						<ul>
 							<li class="fragment"><strong>위키(Wiki)</strong>란?
 								<ul class="fragment">
@@ -72,7 +81,7 @@
 						<p class="fragment" align="right" style="font-size:24px">출처 : 『』(2010), p</p>
 					</section>
 					<section>
-						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">위키</h3>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">위키와 미디어위키</h3>
 						<ul>
 							<li class="fragment"><strong>위키위키웹(WikiWikiWeb)</strong>
 								<ul class="fragment">
@@ -87,7 +96,7 @@
 						<p class="fragment" align="right" style="font-size:24px">출처 : 『』(2010), p</p>
 					</section>
 					<section>
-						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">위키</h3>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">위키와 미디어위키</h3>
 						<ul>
 							<li class="fragment"><strong>위키의 특징</strong>
 								<ul class="fragment">
@@ -101,11 +110,8 @@
 						</ul>
 						<p class="fragment" align="right" style="font-size:24px">출처 : 『』(2010), p</p>
 					</section>
-				</section>
-
-				<section id="미디어위키" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
 					<section>
-						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">미디어위키</h3>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">위키와 미디어위키</h3>
 						<ul>
 							<li class="fragment"><strong>미디어위키</strong>란?
 								<ul class="fragment">
@@ -118,36 +124,168 @@
 					</section>
 				</section>
 				
-				<section id="설치" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+				<section id="압축풀기" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
 					<section>
-						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">미디어위키 설치 실습</h3>
-						<ul>
-							<li class="fragment"><strong>설치</strong>란?
-								<ul class="fragment">
-									<li>추후 작성</li>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">AWS 서버에 미디어위키 압축 풀기</h3>
+						<ul class="fragment">
+							<li>본 내용은 <a href="https://haein.info/ppt-aws/">이전 강의</a>를 통해 AWS 라이트세일 인스턴스를 생성한 이후에 따라갈 수 있으므로, 미비된 경우 이전 강의를 참고 바람</li>
+							<li>인스턴스 생성을 모두 마쳤다면 <a href="https://aws.amazon.com/ko">AWS 홈페이지</a>에 접속하여 먼저 로그인을 한 뒤, 아래 슬라이드를 참고하여 진행 바람</li>
+						</ul>
+					</section>
+					<section>
+						<a href="https://aws.amazon.com/ko/"><img src="img/wk00_1.png" height="500" /></a>
+						<p>1. aws 홈페이지 접속 후 생성한 인스턴스 접속</p>
+					</section>
+					<section>
+						<a href="https://aws.amazon.com/ko/"><img src="img/wk00_2.png" height="500" /></a>
+						<p>2. <strong>SSH를 사용하여 연결</strong> 버튼을 눌러 웹 SSH 열기</p>
+					</section>
+					<section>
+						<pre><code data-trim data-noescape>
+							cd htdocs
+							wget https://releases.wikimedia.org/mediawiki/1.38/mediawiki-1.38.4.tar.gz
+							tar -xvzf mediawiki-1.38.4.tar.gz
+							mv mediawiki-1.38.4 wiki
+						</code></pre>
+						<ol start="3">
+							<li>SSH에 상기 명령어를 <strong>차례로</strong> 입력
+								<ul>
+									<li>htdocs 폴더로 경로 이동</li>
+									<li>wget 명령어로 미디어위키 설치 압축 파일 다운로드</li>
+									<li>tar 명령어로 압축 풀기</li>
+									<li>압축을 풀어 나온 mediawiki-1.38.4 폴더 내용물을 wiki라는 새로운 폴더로 이동</li>
 								</ul>
 							</li>
+						</ol>
+					</section>
+					<section>
+						<img src="img/wk01_1.png" />
+						<p>4. 설정해 둔 고정 IP로 접속하면 상기 화면이 나옴</p>
+					</section>
+				</section>
+
+				<section id="DB" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">데이터베이스 및 사용자 생성</h3>
+						<ul class="fragment">
+							<li>LAMP 블루프린트를 통해 미디어위키에 필요한 제반 사항은 모두 갖춤</li>
+							<ul>
+								<li>LAMP란?
+									<ul>
+										<li><strong>L</strong>inux + <strong>A</strong>pache + <strong>M</strong>ySQL(MariaDB) + <strong>P</strong>HP</li>
+										<li>Linux는 윈도우즈 같은 운영체제, Apache는 웹 서버 운영에 필요한 프로그램, MySQL은 데이터 처리용, PHP는 서버용 언어</li>
+									</ul>
+								</li>
+							</ul>
+							<li>But 미디어위키 설치 전에 <strong>데이터베이스 및 데이터베이스 유저 생성</strong>은 직접 해 줘야 함!</li>
 						</ul>
-						<p class="fragment" align="right" style="font-size:24px">출처 : 『』(2010), p</p>
+					</section>
+					<section>
+						<pre><code data-trim data-noescape>
+							cat bitnami_application_password
+							mysql -u root -p
+							CREATE DATABASE wikidb;
+							SHOW DATABASES;
+							CREATE USER yourname@localhost IDENTIFIED BY '1234';
+							GRANT ALL PRIVILEGES ON wikidb.* TO yourname@localhost WITH GRANT OPTION;
+						</code></pre>
+						<p style="font-size: 30px;">다음 슬라이드의 <strong>실제 예시를 꼭 참고</strong> 및 비교하며 진행!!</p>
+						<ol>
+							<li>SSH에 상기 명령어를 <strong>차례로</strong> 입력
+								<ul>
+									<li>cat bitnami_application_password를 입력하면 mysql 비밀번호가 나오므로 기억해 둘 것</li>
+									<li>mysql -u root -p을 쳐서 접속할 때 상기 비밀번호를 입력할 것 (비밀번호는 입력해도 눈에 안 보임)</li>
+									<li><strong>yourname</strong>에 사용자 이름 입력(e.g. haein), <strong>1234</strong> 대신 데이터베이스 사용자 비밀번호 원하는 대로 입력</li>
+								</ul>
+							</li>
+						</ol>
+					</section>
+					<section>
+						<a href="https://aws.amazon.com/ko/"><img src="img/wk04.png" height="500" /></a>
+						<p>참고용 실제 예시</p>
+					</section>
+				</section>
+
+				<section id="설치" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">웹에서 미디어위키 설치</h3>
+						<ul class="fragment">
+							<li>설정한 고정 IP로 접속할 것</li>
+							<img src="https://user-images.githubusercontent.com/61646760/197384742-518e5de9-79e8-4d03-bc9b-2577f531bd3c.png" />
+							<li>데이터베이스 및 데이터베이스 사용자 생성이 안 된 상황이라면 설치 중 문제가 발생하므로 반드시 앞의 과정을 마친 뒤 진행해야 함</li>
+						</ul>
+					</section>
+					<section>
+						<a href="https://aws.amazon.com/ko/"><img src="img/wk01_2.png" /></a>
+						<p>1. <strong>complete the installation</strong> 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk02.png" />
+						<p>2. 한국어 설정 확인 후 계속 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk03.png" />
+						<p>3. 미디어위키 설치할 수 있으므로 계속 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk05.png" height="460"/>
+						<p>4. 앞서 만든 데이터베이스, 사용자(yourname) 및 비밀번호(1234) 입력</p>
+					</section>
+					<section>
+						<img src="img/wk06.png" />
+						<p>5. 계속 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk07.png" />
+						<p>6. 위키 이름, 관리자 계정 ID, PW 입력</p>
+					</section>
+					<section>
+						<img src="img/wk08.png" />
+						<p>7. 더 많은 질문을 물어보세요 체크 후 계속 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk09.png" />
+						<p>8. 상기 이미지 참고하여 체크 및 체크 해제</p>
+					</section>
+					<section>
+						<img src="img/wk10.png" />
+						<p>9. 상기 이미지 참고하여 체크 및 체크 해제</p>
+					</section>
+					<section>
+						<img src="img/wk11.png" />
+						<p>10. 상기 이미지 참고하여 체크 및 체크 해제</p>
+					</section>
+					<section>
+						<img src="img/wk12.png" />
+						<p>11. 상기 이미지 참고하여 체크 및 체크 해제</p>
+					</section>
+					<section>
+						<img src="img/wk13.png" />
+						<p>12. 계속 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk14.png" />
+						<p>13. 구축이 완료되면 계속 버튼 클릭</p>
+					</section>
+					<section>
+						<img src="img/wk15.png" height="460" />
+						<p>14. 설치가 완료되면 LocalSettings.php 파일이 저절로 다운로드됨 (안 되면 수동으로 다운 후 보관)</p>
+					</section>
+				</section>
+
+				<section id="php" data-transition="fade" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
+					<section>
+						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">LocalSettings.php 서버에 올리기</h3>
+						<ul class="fragment">
+							<li>추후 진행 예정</li>
+						</ul>
 					</section>
 				</section>
 
 				<!-- <section id="pdf" data-transition="fade">
 					<h2 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">PDF로 다운받기</h2>
-					<iframe src="//www.slideshare.net/slideshow/embed_code/key/JL97kjWKxvzn1L" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
+					<iframe src="//www.slideshare.net/slideshow/embed_code/key/" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
 				</section> -->
-
-				<section id="레퍼런스" data-transition="slide" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
-					<h2 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">레퍼런스</h2>
-					<ul>
-						<li>도서</li>
-						<ul>
-							<li>추후 작성</li>
-						</ul>
-						<li>논문</li>
-					</ul>
-					
-				</section>
 
 				<section id="질의응답" data-transition="slide" data-background-image="https://user-images.githubusercontent.com/61646760/191900619-957216a8-5677-44ee-8147-db61d5329a3f.png" data-background-size="contain">
 					<h2 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">질의응답</h2>
