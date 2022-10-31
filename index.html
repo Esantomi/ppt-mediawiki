@@ -153,7 +153,7 @@
 							tar -xvzf mediawiki-1.38.4.tar.gz
 							mv mediawiki-1.38.4 wiki
 						</code></pre>
-						<br /><h4 class="fragment" style="text-align: center; text-decoration: underline;"><strong>타자로 치지 말고 위에서부터 한 줄씩 복사+붙여넣기!</strong></h4>
+						<br /><h4 class="fragment" style="text-align: center; text-decoration: underline;"><strong>타자로 치지 말고 위에서부터 한 줄씩</strong><br /><strong>마우스 우클릭+붙여넣기</strong></h4>
 					</section>
 					<section>
 						<ul>
@@ -178,7 +178,7 @@
 						<ul class="fragment">
 							<li>LAMP를 선택해 미디어위키 설치 준비는 완료했음</li>
 							<img src="img/lamp.png" height="280"/>
-							<li>하지만 <strong>데이터베이스 및 데이터베이스 유저 생성</strong>은 직접!</li>
+							<li>하지만 <strong>데이터베이스 및 데이터베이스 ID 생성</strong>은 직접!</li>
 							<ul>
 								<li>데이터를 저장할 공간과 그 공간을 사용할 사람의 ID를 만드는 과정</li>
 							</ul>
@@ -192,7 +192,8 @@
 						<ol>
 							<li>SSH에 상기 명령어를 <strong>차례로</strong> 입력</li>
 						</ol>
-						<pre><code data-line-numbers="1|2|3|4|5|6|1-6" data-trim data-noescape>
+						<pre><code data-line-numbers="1|2|3|4|5|6|7|1-7" data-trim data-noescape>
+							cd ..
 							cat bitnami_application_password
 							mysql -u root -p
 							CREATE DATABASE wikidb;
@@ -242,7 +243,7 @@
 					</section>
 					<section>
 						<img src="img/wk05.png" height="460"/>
-						<p>4. 앞서 만든 데이터베이스, 사용자(yourname) 및 비밀번호(1234) 입력</p>
+						<p>4. 앞서 만든 데이터베이스, 사용자(wiki) 및 비밀번호(e52fwUUfE9hyoi6r1) 입력</p>
 					</section>
 					<section>
 						<img src="img/wk06.png" />
@@ -290,8 +291,70 @@
 					<section>
 						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">LocalSettings.php 서버에 올리기</h3>
 						<ul class="fragment">
-							<li>추후 진행 예정</li>
+							<li><strong>LocalSettings.php</strong> : 데이터베이스 정보를 포함한 위키와 관련된 대부분의 설정 관리</li>
+							<ul>
+								<li>설치 시 저절로 생성(안 될 시 수동으로 다운로드)되며, 사용자가 직접 wiki 폴더 안에 넣어 줘야 함</li>
+							</ul>
+							<li class="fragment">서버에 어떻게 파일을 올릴 수 있을까?🤔🤔</li>
 						</ul>
+					</section>
+					<section>
+						<ul>
+							<li>FTP/SFTP 프로그램인 FileZilla를 활용!</li>
+							<ul>
+								<img src="https://user-images.githubusercontent.com/61646760/199055066-cdf38667-ec51-4272-bb2d-b0f8e8bc11dc.png" height="300" />
+								<li><strong>FTP(File Transfer Protocol)</strong> : 서버에 파일을 올리는 프로그램</li>
+								<li><strong>SFTP(Secure FTP)</strong> : 서버에 <strong>안전하게</strong> 파일을 올리는 프로그램</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<img src="img/fz00.png" />
+						<p>1. <a href="https://filezilla-project.org/"><strong>FileZilla</strong></a> 설치 : 설치 방법은 <a href="https://rnrn2.tistory.com/entry/파일질라-다운로드-및-설치-방법-사용법">이곳</a>을 참고</p>
+					</section>
+					<section>
+						<img src="img/fz01.png" height="500" />
+						<p>2. FileZilla 실행</p>
+					</section>
+					<section>
+						<img src="img/fz02.png" height="500" />
+						<p>3. 파일 - 사이트 관리자 클릭</p>
+					</section>
+					<section>
+						<img src="img/sshkey.png" height="500" />
+						<p>4. lightsail 인스턴스 페이지에서 <strong>기본 키(.pem) 다운로드</strong></p>
+					</section>
+					<section>
+						<img src="img/fz03.png" height="500" />
+						<p>5. 새 사이트 클릭 후 우측 정보 입력</p>
+					</section>
+					<section>
+						<img src="img/fz04.png" />
+						<p>6. 확인 클릭</p>
+					</section>
+					<section>
+						<img src="img/fz05.png" height="500" />
+						<p>7. 연결되면 우측에서 <strong>htdocs 더블 클릭</strong></p>
+					</section>
+					<section>
+						<img src="img/fz06.png" height="500" />
+						<p>8. htdocs로 들어가면 <strong>wiki 더블 클릭</strong></p>
+					</section>
+					<section>
+						<img src="img/fz07.png" height="500" />
+						<p>9. 다운받아 둔 <strong>LocalSettings.php</strong> 우클릭 후 업로드 클릭</p>
+					</section>
+					<section>
+						<img src="img/fz08.png" height="500" />
+						<p>10. <strong>http://고정ip주소/wiki</strong> 주소 입력하여 접속</p>
+					</section>
+					<section>
+						<img src="img/fz09.png" height="500" />
+						<p>11. 우측 상단의 로그인 버튼 눌러 관리자 계정으로 로그인</p>
+					</section>
+					<section>
+						<img src="img/fz10.png" height="500" />
+						<p>12. 로그인된 화면</p>
 					</section>
 				</section>
 
