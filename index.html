@@ -140,23 +140,31 @@
 						<a href="https://aws.amazon.com/ko/"><img src="img/wk00_2.png" height="500" /></a>
 						<p>2. <strong>SSH를 사용하여 연결</strong> 버튼을 눌러 웹 SSH 열기</p>
 					</section>
+					<section data-background-image="img/terminal.gif">
+						<h2 class="fragment" style="color: white;"><strong>복사+붙여넣기</strong></h2>
+					</section>
 					<section>
-						<pre><code data-trim data-noescape>
+						<ol start="3">
+							<li>SSH에 상기 명령어를 <strong>차례로</strong> 입력
+						</ol>
+						<pre><code data-line-numbers="1|2|3|4|1-4" data-trim data-noescape>
 							cd htdocs
 							wget https://releases.wikimedia.org/mediawiki/1.38/mediawiki-1.38.4.tar.gz
 							tar -xvzf mediawiki-1.38.4.tar.gz
 							mv mediawiki-1.38.4 wiki
 						</code></pre>
-						<ol start="3">
-							<li>SSH에 상기 명령어를 <strong>차례로</strong> 입력
-								<ul>
-									<li>htdocs 폴더로 경로 이동</li>
-									<li>wget 명령어로 미디어위키 설치 압축 파일 다운로드</li>
-									<li>tar 명령어로 압축 풀기</li>
-									<li>압축을 풀어 나온 mediawiki-1.38.4 폴더 내용물을 wiki라는 새로운 폴더로 이동</li>
-								</ul>
-							</li>
-						</ol>
+						<br /><h4 class="fragment" style="text-align: center; text-decoration: underline;"><strong>타자로 치지 말고 위에서부터 한 줄씩 복사+붙여넣기!</strong></h4>
+					</section>
+					<section>
+						<ul>
+							<li>명령어 설명(참고)</li>
+							<ul>
+								<li><strong>cd htdocs</strong> : htdocs 폴더로 경로 이동</li>
+								<li><strong>wget</strong> : 주소에 있는 파일 다운로드</li>
+								<li><strong>tar</strong> : 압축 파일의 압축을 푸는 명령</li>
+								<li><strong>mv 폴더1 폴더2 </strong> : 폴더1의 내용물을 폴더2라는 폴더를 만들어 안으로 옮기기</li>
+							</ul>
+						</ul>
 					</section>
 					<section>
 						<img src="img/wk01_1.png" />
@@ -168,41 +176,46 @@
 					<section>
 						<h3 style="font-family: 'Gowun Dodum', 'Yuji Syuku';">데이터베이스 및 사용자 생성</h3>
 						<ul class="fragment">
-							<li>LAMP 블루프린트를 통해 미디어위키에 필요한 제반 사항은 모두 갖춤</li>
+							<li>LAMP를 선택해 미디어위키 설치 준비는 완료했음</li>
+							<img src="img/lamp.png" height="280"/>
+							<li>하지만 <strong>데이터베이스 및 데이터베이스 유저 생성</strong>은 직접!</li>
 							<ul>
-								<li>LAMP란?
-									<ul>
-										<li><strong>L</strong>inux + <strong>A</strong>pache + <strong>M</strong>ySQL(MariaDB) + <strong>P</strong>HP</li>
-										<li>Linux는 윈도우즈 같은 운영체제, Apache는 웹 서버 운영에 필요한 프로그램, MySQL은 데이터 처리용, PHP는 서버용 언어</li>
-									</ul>
-								</li>
+								<li>데이터를 저장할 공간과 그 공간을 사용할 사람의 ID를 만드는 과정</li>
 							</ul>
-							<li>But 미디어위키 설치 전에 <strong>데이터베이스 및 데이터베이스 유저 생성</strong>은 직접 해 줘야 함!</li>
 						</ul>
 					</section>
 					<section>
-						<pre><code data-trim data-noescape>
+						<a href="https://aws.amazon.com/ko/"><img src="img/wk04.png" height="500" /></a>
+						<p>정신 차리고 <strong>복사+붙여넣기</strong>만 잘하면 된다!</p>
+					</section>
+					<section>
+						<ol>
+							<li>SSH에 상기 명령어를 <strong>차례로</strong> 입력</li>
+						</ol>
+						<pre><code data-line-numbers="1|2|3|4|5|6|1-6" data-trim data-noescape>
 							cat bitnami_application_password
 							mysql -u root -p
 							CREATE DATABASE wikidb;
 							SHOW DATABASES;
-							CREATE USER yourname@localhost IDENTIFIED BY '1234';
-							GRANT ALL PRIVILEGES ON wikidb.* TO yourname@localhost WITH GRANT OPTION;
+							CREATE USER wiki@localhost IDENTIFIED BY 'e52fwUUfE9hyoi6r1';
+							GRANT ALL PRIVILEGES ON wikidb.* TO wiki@localhost WITH GRANT OPTION;
 						</code></pre>
-						<p style="font-size: 30px;">다음 슬라이드의 <strong>실제 예시를 꼭 참고</strong> 및 비교하며 진행!!</p>
-						<ol>
-							<li>SSH에 상기 명령어를 <strong>차례로</strong> 입력
-								<ul>
-									<li>cat bitnami_application_password를 입력하면 mysql 비밀번호가 나오므로 기억해 둘 것</li>
-									<li>mysql -u root -p을 쳐서 접속할 때 상기 비밀번호를 입력할 것 (비밀번호는 입력해도 눈에 안 보임)</li>
-									<li><strong>yourname</strong>에 사용자 이름 입력(e.g. haein), <strong>1234</strong> 대신 데이터베이스 사용자 비밀번호 원하는 대로 입력</li>
-								</ul>
-							</li>
-						</ol>
+						<br /><h4 class="fragment" style="text-align: center; text-decoration: underline;"><strong>이전 슬라이드의 실제 예시를 꼭 참고 및 비교하며 진행!!</strong></h4>
 					</section>
 					<section>
-						<a href="https://aws.amazon.com/ko/"><img src="img/wk04.png" height="500" /></a>
-						<p>참고용 실제 예시</p>
+						<ul>
+							<li>명령어 설명(참고)</li>
+							<ul>
+								<li><strong>cat bitnami_application_password</strong> : 기본으로 주어지는 mysql 비밀번호를 출력</li>
+								<li><strong>mysql -u root -p</strong> : mysql 접속
+									<ul>
+										<li>cat bitnami_application_password를 쳐서 나온 비밀번호를 입력(비밀번호는 눌러도 눈에 안 보임)</li>
+									</ul></li>
+								<li><strong>CREATE DATABASE 이름;</strong> : 이름이라는 데이터베이스 생성</li>
+								<li><strong>CREATE USER ID@localhost IDENTIFIED BY 'PW';</strong> : ID, PW로 아이디 생성</li>
+								<li><strong>GRANT ALL PRIVILEGES ON 데이터베이스1.* TO ID@localhost</strong> : 데이터베이스1에 대해 모든 권한 부여</li>
+							</ul>
+						</ul>
 					</section>
 				</section>
 
