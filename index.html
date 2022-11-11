@@ -219,9 +219,7 @@
 						<p>정신 차리고 <strong>복사+붙여넣기</strong>만 잘하면 된다!</p>
 					</section>
 					<section>
-						<ol>
-							<li>SSH에 상기 명령어를 <strong>차례로</strong> 입력</li>
-						</ol>
+						<br /><h4 class="fragment" style="text-align: center; text-decoration: underline;"><strong>이전 슬라이드의 실제 예시를 꼭 참고 및 비교하며 진행!!</strong></h4>
 						<pre><code data-line-numbers="1|2|3|4|5|6|7|1-7" data-trim data-noescape>
 							cd ..
 							cat bitnami_application_password
@@ -231,7 +229,12 @@
 							CREATE USER wiki@localhost IDENTIFIED BY 'e52fwUUfE9hyoi6r1';
 							GRANT ALL PRIVILEGES ON wikidb.* TO wiki@localhost WITH GRANT OPTION;
 						</code></pre>
-						<br /><h4 class="fragment" style="text-align: center; text-decoration: underline;"><strong>이전 슬라이드의 실제 예시를 꼭 참고 및 비교하며 진행!!</strong></h4>
+						<ol>
+							<li>SSH에 상기 명령어를 <strong>차례로</strong> 입력</li>
+							<ul>
+								<li>각각의 코드가 어떤 기능을 수행하는지에 대한 설명은 후술!</li>
+							</ul>
+						</ol>
 					</section>
 					<section>
 						<ul>
@@ -245,6 +248,59 @@
 								<li><strong>CREATE DATABASE 이름;</strong> : 이름이라는 데이터베이스 생성</li>
 								<li><strong>CREATE USER ID@localhost IDENTIFIED BY 'PW';</strong> : ID, PW로 아이디 생성</li>
 								<li><strong>GRANT ALL PRIVILEGES ON 데이터베이스1.* TO ID@localhost</strong> : 데이터베이스1에 대해 모든 권한 부여</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<pre><code data-line-numbers="1|2|1-2" data-trim data-noescape>
+							chmod 777 htdocs/wiki/images
+							mv htdocs/wiki/images/.htaccess htdocs/wiki/images/.htaccess_disabled
+						</code></pre>
+						<ol start="2">
+							<li>SSH에 상기 명령어를 <strong>차례로</strong> 입력</li>
+							<ul>
+								<li>아래 이미지와 같이 명령어를 입력했는데도 아무 일도 일어나지 않는다면 잘된 것이다.</li>
+								<img src="https://user-images.githubusercontent.com/61646760/201262948-9aec0538-47ff-4b85-8faf-122de163a3cf.png" />
+							</ul>
+						</ol>
+					</section>
+					<section>
+						<ul>
+							<li>명령어 설명 : chmod</li>
+							<ul>
+								<li><strong>chmod 777 htdocs/wiki/images</strong></li>
+								<ul>
+									<li class="fragment"><strong>chmod</strong></li>
+									<ul class="fragment">
+										<li>파일, 폴더의 권한을 변경(change mode)하는 명령어</li>
+									</ul>
+									<li class="fragment"><strong>777</strong></li>
+									<ul class="fragment">
+										<li>사용자, 그룹, 기타에 대해 각각 7의 권한을 부여한다는 의미</li>
+										<li><strong>7</strong> : 읽기(4) + 쓰기(2) + 실행(1) = 세 권한의 합</li>
+									</ul>
+									<li class="fragment">즉, <strong>누구든 위키에 이미지 파일을 올리거나 볼 수 있게 설정</strong>하는 과정!</li>
+								</ul>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li>명령어 설명 : mv</li>
+							<ul>
+								<li><strong>mv htdocs/wiki/images/.htaccess htdocs/wiki/images/.htaccess_disabled</strong></li>
+								<ul>
+									<li class="fragment"><strong>mv</strong></li>
+									<ul class="fragment">
+										<li>파일, 폴더를 이동(move)시키는 명령어</li>
+									</ul>
+									<li class="fragment"><strong>.htaccess</strong></li>
+									<ul class="fragment">
+										<li>“hypertext access”의 약자</li>
+										<li>폴더에 대한 접근을 설정하는 파일</li>
+									</ul>
+									<li class="fragment">즉 .htaccess를 .htaccess_disabled로 바꾸는 것은 <strong>.htaccess 파일을 비활성화</strong>하는 것!</li>
+								</ul>
 							</ul>
 						</ul>
 					</section>
